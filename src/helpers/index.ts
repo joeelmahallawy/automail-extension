@@ -3,8 +3,9 @@ import type { EmotionCache } from "@emotion/react"
 
 export const getEnvironmentServerURL = () =>
   process.env.NODE_ENV === "development"
-    ? `http://localhost:4000`
-    : `http://localhost:4000`
+    ? `https://automail-backend-production.up.railway.app`
+    : // ? `http://localhost:4000`
+      `https://automail-backend-production.up.railway.app`
 
 export async function getCurrentTab() {
   let queryOptions = { active: true }
