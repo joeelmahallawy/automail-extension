@@ -25,6 +25,9 @@ yarn-error.log*
 # local env files
 .env*
 
+# oauth credentials
+credentials.json
+
 out/
 build/
 dist/
@@ -42,3 +45,5 @@ keys.json
 
 # typescript
 .tsbuildinfo
+
+
