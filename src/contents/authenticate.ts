@@ -12,16 +12,14 @@ import { getCookie, getEnvironmentWebsiteURL } from "~helpers"
     // get jwt from website
     const jwt = getCookie("jwt")
 
+    // logged in on website
     if (jwt) {
-      // check if user is logged in
-      const jwtExists = await chrome.storage.local.get("jwt")
+      // but are they logged in on extension?
+      // const jwtExists = await chrome.storage.local.get("jwt")
 
-      // jwt isn't stored in chrome storage
-      if (isEmpty(jwtExists)) {
-        // so we store jwt in chrome storage
-        await chrome.storage.local.set({ jwt })
-        // NOTE: let's assume that no1 will ever change their JWT and that if it exists, it's VALID
-      }
+      // doesn't matter, we'll store the new JWT anyways because users can always switch accounts
+      await chrome.storage.local.set({ jwt })
+      // NOTE: let's assume that no1 will ever change their JWT and that if it exists, it's VALID
     }
   }
 })()

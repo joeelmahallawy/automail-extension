@@ -7,4 +7,14 @@ export type User = {
   name: string
   email: string
   profilePicture: string
+  ScheduledEmails?: ScheduledEmail[]
+}
+
+export type ScheduledEmail = {
+  id: string
+  threadId: string
+  body: string
+  sendAt: string
+  userId: string
+  recipients: string[]
 }

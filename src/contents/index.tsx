@@ -55,7 +55,7 @@ const GmailFollowupBox = () => {
       const user: User = await sendToBackgroundViaRelay({
         name: "session"
       })
-      console.log(`response from background`, user)
+
       setSession(user)
     })()
 
@@ -76,6 +76,8 @@ const GmailFollowupBox = () => {
       followUpDate: (val) => (!val ? `Invalid date` : null)
     }
   })
+
+
 
   return (
     session && (
@@ -144,7 +146,7 @@ const GmailFollowupBox = () => {
                 required
                 {...form.getInputProps("followUpDate")}
                 valueFormat="MMM DD, YYYY hh:mm A"
-                label="Schedule time to send if no response"
+                label="Scheduled time to send if no response"
                 placeholder="e.g. Oct 17, 2023 09:32 AM"
                 mx="auto"
               />
@@ -160,6 +162,8 @@ const GmailFollowupBox = () => {
               </Button>
             </form>
           </Modal>
+
+          {/* show button if we sent the last email */}
           {document
             .querySelectorAll(".c2")
             [document.querySelectorAll(".c2").length - 1].querySelector(
@@ -185,10 +189,7 @@ const GmailFollowupBox = () => {
               }}
               onClick={() => {
                 setFollowUpEmailModalOpen(true)
-                console.log(
-                  `session:`,
-                  document.querySelector("plasmo-csui").shadowRoot.children
-                )
+                
               }}
               leftIcon={<IconArrowBack strokeWidth={1.2} />}
               radius="xl"

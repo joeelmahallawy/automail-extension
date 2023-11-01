@@ -2,10 +2,10 @@ import createCache from "@emotion/cache"
 import type { EmotionCache } from "@emotion/react"
 
 export const getEnvironmentServerURL = () =>
-  process.env.NODE_ENV === "development"
+  process.env.NODE_ENV === "production"
     ? `https://automail-backend-production.up.railway.app`
-    : // ? `http://localhost:4000`
-      `https://automail-backend-production.up.railway.app`
+    : `http://localhost:4000`
+// `https://automail-backend-production.up.railway.app`
 
 export async function getCurrentTab() {
   let queryOptions = { active: true }
@@ -17,7 +17,7 @@ export async function getCurrentTab() {
 
 export const getEnvironmentWebsiteURL = () =>
   process.env.NODE_ENV === "production"
-    ? `http://localhost:3000`
+    ? `https://automail-frontend.vercel.app`
     : `http://localhost:3000`
 
 export const createNewStyleTag = (element: HTMLStyleElement) =>
@@ -81,8 +81,6 @@ export const getStyleTagByID = (id: string) => {
   ) {
     styleTag = plasmoContainer.shadowRoot.querySelector("style")
   }
-
-  console.log(`final styleTag:`, styleTag)
 
   return styleTag
 }
