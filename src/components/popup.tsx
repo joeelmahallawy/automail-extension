@@ -15,6 +15,7 @@ import {
   Title,
   Tooltip
 } from "@mantine/core"
+import { showNotification } from "@mantine/notifications"
 import {
   IconArrowRight,
   IconChevronRight,
@@ -24,7 +25,6 @@ import {
   IconSettings,
   IconSwitchHorizontal
 } from "@tabler/icons-react"
-import logo from "data-base64:../../assets/logo-light.png"
 import moment from "moment"
 import { useEffect, useState } from "react"
 import { useAsyncFn } from "react-use"
@@ -33,6 +33,8 @@ import { sendToBackground } from "@plasmohq/messaging"
 
 import { getEnvironmentWebsiteURL, openNewTab } from "~helpers"
 import type { User } from "~interfaces"
+
+import logo from "../../assets/logo-light.png"
 
 export function Main() {
   const [isLoading, setIsLoading] = useState(false)
@@ -71,7 +73,7 @@ export function Main() {
     <Box style={{ padding: 5 }}>
       <Center sx={{ justifyContent: "flex-end", gap: 5 }}>
         <Title order={5}>Automail</Title>
-        <Image src={logo} width={30} />
+        <Image src={logo.src} width={30} />
       </Center>
       <Center
         style={{
@@ -97,7 +99,7 @@ export function Main() {
       <Center sx={{ justifyContent: "space-between", padding: 5 }}>
         <Center sx={{ gap: 5 }}>
           <Title order={5}>Automail</Title>
-          <Image src={logo} width={30} />
+          <Image src={logo.src} width={30} />
         </Center>
         <Menu withArrow shadow="md" width={140} position="left">
           <Menu.Target>
@@ -172,7 +174,7 @@ export function Main() {
                 color="gray"
                 fullWidth
                 size="xs">
-                Nevermind
+                Cancel
               </Button>
               <Button
                 loading={isLoading}
@@ -189,7 +191,7 @@ export function Main() {
                 color="red"
                 fullWidth
                 size="xs">
-                Yes, cancel it
+                Confirm
               </Button>
             </Center>
           </Modal>

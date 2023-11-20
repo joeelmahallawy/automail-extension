@@ -1,8 +1,8 @@
 {
   "name": "email-follow-up",
-  "displayName": "Email follow up",
+  "displayName": "Automail",
   "version": "0.0.1",
-  "description": "A Basic browser extension for sending follow-up emails",
+  "description": "A browser extension for sending conditional follow-up emails in Gmail",
   "author": "Youssef El Mahallawy",
   "scripts": {
     "start": "next start",
@@ -68,7 +68,6 @@
     ],
     "permissions": [
       "tabs",
-      "cookies",
       "storage",
       "scripting"
     ]

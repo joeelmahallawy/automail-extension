@@ -7,14 +7,6 @@ export const getEnvironmentServerURL = () =>
     : `http://localhost:4000`
 // `https://automail-backend-production.up.railway.app`
 
-export async function getCurrentTab() {
-  let queryOptions = { active: true }
-  // `tab` will either be a `tabs.Tab` instance or `undefined`.
-  let [tab] = await chrome.tabs.query(queryOptions)
-
-  return tab.id
-}
-
 export const getEnvironmentWebsiteURL = () =>
   process.env.NODE_ENV === "production"
     ? `https://automail-frontend.vercel.app`
@@ -26,15 +18,6 @@ export const createNewStyleTag = (element: HTMLStyleElement) =>
     prepend: true,
     container: element
   })
-
-export const getActiveTabURL = async () => {
-  const tabs = await chrome.tabs.query({
-    currentWindow: true,
-    active: true
-  })
-
-  return tabs[0]
-}
 
 export const getCookie = (cookieName) => {
   let name = cookieName + "="

@@ -77,8 +77,6 @@ const GmailFollowupBox = () => {
     }
   })
 
-
-
   return (
     session && (
       <ThemeProvider
@@ -189,7 +187,6 @@ const GmailFollowupBox = () => {
               }}
               onClick={() => {
                 setFollowUpEmailModalOpen(true)
-                
               }}
               leftIcon={<IconArrowBack strokeWidth={1.2} />}
               radius="xl"
